@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .target{
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
-$END$
+  <ul>
+<!--    <li th:each="dto : ${list}">-->
+<!--      [[${dto}]]-->
+<!--    </li>-->
+
+      <!--<li th:each="dto, state : ${list}" th:text="${dto.sno % 5 == 0}?${dto.sno} : ${dto.first}"></li>-->
+      <!--<li th:each="dto: ${list}" th:class="${dto.sno % 2 == 0}?'target'" th:text="${dto}"></li>-->
+      <th:block th:each="dto: ${list}">
+          <li th:text="${dto.sno % 5 == 0}?${dto.sno}:${dto.first}"></li>
+      </th:block>
+
+  </ul>
+
 </body>
 </html>
